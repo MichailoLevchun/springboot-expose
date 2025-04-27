@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sb
+  namespace: f9iioa28-expose-dev
+spec:
+  rules:
+    - host: springboot-expose-f9iioa28-expose-dev.development.krci-dev.cloudmentor.academy
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sb
+                port:
+                  number: 80
